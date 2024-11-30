@@ -23,6 +23,6 @@ public class TargetHit : MonoBehaviour
 
     private void Update()
     {
-        if(rotate) transform.Rotate(0, 0.02f, 0);
+        if(rotate) transform.Rotate(0, 5*Time.deltaTime, 0);
     }
 }

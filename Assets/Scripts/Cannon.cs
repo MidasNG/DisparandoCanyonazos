@@ -34,22 +34,29 @@ public class Cannon : MonoBehaviour
         randomForce = Random.Range(1f, 20f);
         instance.GetComponent<Rigidbody>().AddForce(new Vector3(0, randomForce, randomForce), ForceMode.Impulse);
         randomColor = Random.Range(1, 6);
+        
+
+
         switch (randomColor)
         {
             case 1:
                 instance.GetComponent<MeshRenderer>().material.color = Color.white;
+                instance.GetComponentInChildren<TrailRenderer>().startColor = Color.black;
                 break;
-
+                
             case 2:
                 instance.GetComponent<MeshRenderer>().material.color = Color.blue;
+                instance.GetComponentInChildren<TrailRenderer>().startColor = Color.yellow;
                 break;
 
             case 3:
                 instance.GetComponent<MeshRenderer>().material.color = Color.red;
+                instance.GetComponentInChildren<TrailRenderer>().startColor = Color.cyan;
                 break;
 
             case 4:
                 instance.GetComponent<MeshRenderer>().material.color = Color.green;
+                instance.GetComponentInChildren<TrailRenderer>().startColor = Color.magenta;
                 break;
 
             case 5:
