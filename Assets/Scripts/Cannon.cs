@@ -17,27 +17,36 @@ public class Cannon : MonoBehaviour
 
     public void Shoot()
     {
+        //Dejar la corrutina de rastreo anterior
         StopAllCoroutines();
+
+        //Cambio de color inicial y creación de bala
         GetComponent<MeshRenderer>().material.color = Color.red;
         instance = Instantiate(ball, origin);
         instance.GetComponent<Rigidbody>().AddForce(new Vector3(0, 10, 10), ForceMode.Impulse);
+
+        //Corrutina de rastreo de distancia para volver al color normal
         StartCoroutine(TrackDistance(instance));
     }
 
     public void RandomShoot()
     {
+        //Dejar la corrutina de rastreo anterior
         StopAllCoroutines();
+
+        //Cambio de color inicial y creación de bala con escala y fuerza aleatorios
         GetComponent<MeshRenderer>().material.color = Color.red;
         instance = Instantiate(ball, origin);
+
         randomSize = Random.Range(0.1f, 3f);
         instance.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
+
         instance.GetComponentInChildren<TrailRenderer>().startWidth *= randomSize;
         randomForce = Random.Range(1f, 20f);
         instance.GetComponent<Rigidbody>().AddForce(new Vector3(0, randomForce, randomForce), ForceMode.Impulse);
-        randomColor = Random.Range(1, 6);
         
-
-
+        //Cambio de color
+        randomColor = Random.Range(1, 6);
         switch (randomColor)
         {
             case 1:
@@ -69,13 +78,14 @@ public class Cannon : MonoBehaviour
                 break;
         }
 
+        //Corrutina de rastreo de distancia para volver al color normal del cañón
         StartCoroutine(TrackDistance(instance));
     }
 
     private IEnumerator TrackDistance(GameObject bullet)
     {
         while (bullet != null && Vector3.Magnitude(bullet.transform.position - transform.position) < 7) yield return new WaitForEndOfFrame();
-        gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        GetComponent<MeshRenderer>().material.color = Color.white;
         yield return null;
     }
 }

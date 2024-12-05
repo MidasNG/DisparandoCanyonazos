@@ -10,9 +10,11 @@ public class TargetHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //Desde el inspector se ajusta si desaparece después de un golpe o tres
         if (!altBehaviour) Destroy(gameObject);
         else
         {
+            //Estados
             hitCount++;
 
             if (hitCount == 1) GetComponent<MeshRenderer>().material.color = Color.red;
@@ -23,6 +25,7 @@ public class TargetHit : MonoBehaviour
 
     private void Update()
     {
+        //Rotación en estado 2
         if(rotate) transform.Rotate(0, 5*Time.deltaTime, 0);
     }
 }
