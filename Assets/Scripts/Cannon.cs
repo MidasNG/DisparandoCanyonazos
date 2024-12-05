@@ -31,6 +31,7 @@ public class Cannon : MonoBehaviour
         instance = Instantiate(ball, origin);
         randomSize = Random.Range(0.1f, 3f);
         instance.transform.localScale = new Vector3(randomSize, randomSize, randomSize);
+        instance.GetComponentInChildren<TrailRenderer>().startWidth *= randomSize;
         randomForce = Random.Range(1f, 20f);
         instance.GetComponent<Rigidbody>().AddForce(new Vector3(0, randomForce, randomForce), ForceMode.Impulse);
         randomColor = Random.Range(1, 6);
@@ -42,21 +43,25 @@ public class Cannon : MonoBehaviour
             case 1:
                 instance.GetComponent<MeshRenderer>().material.color = Color.white;
                 instance.GetComponentInChildren<TrailRenderer>().startColor = Color.black;
+                instance.GetComponentInChildren<TrailRenderer>().endColor = Color.black;
                 break;
                 
             case 2:
                 instance.GetComponent<MeshRenderer>().material.color = Color.blue;
                 instance.GetComponentInChildren<TrailRenderer>().startColor = Color.yellow;
+                instance.GetComponentInChildren<TrailRenderer>().endColor = Color.yellow;
                 break;
 
             case 3:
                 instance.GetComponent<MeshRenderer>().material.color = Color.red;
                 instance.GetComponentInChildren<TrailRenderer>().startColor = Color.cyan;
+                instance.GetComponentInChildren<TrailRenderer>().endColor = Color.cyan;
                 break;
 
             case 4:
                 instance.GetComponent<MeshRenderer>().material.color = Color.green;
                 instance.GetComponentInChildren<TrailRenderer>().startColor = Color.magenta;
+                instance.GetComponentInChildren<TrailRenderer>().endColor = Color.magenta;
                 break;
 
             case 5:
@@ -69,7 +74,7 @@ public class Cannon : MonoBehaviour
 
     private IEnumerator TrackDistance(GameObject bullet)
     {
-        while (Vector3.Magnitude(bullet.transform.position - transform.position) < 7) yield return new WaitForEndOfFrame();
+        while (bullet != null && Vector3.Magnitude(bullet.transform.position - transform.position) < 7) yield return new WaitForEndOfFrame();
         gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
         yield return null;
     }

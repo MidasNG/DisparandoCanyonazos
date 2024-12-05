@@ -2,14 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RedButton : Button
+public class RedButton : MonoBehaviour
 {
+    private GameManager game;
+
+    private void Start()
+    {
+        game = FindObjectOfType<GameManager>();
+    }
+
     private void OnMouseDown()
     {
-        foreach (GameObject bullet in GameObject.FindGameObjectsWithTag("Bullet")) Destroy(bullet.gameObject);
-        bulletCount = 0;
-        counter.text = bulletCount.ToString();
-        cannon.GetComponent<MeshRenderer>().material.color = Color.white;
+        game.BulletRemove();
+        game.cannon.GetComponent<MeshRenderer>().material.color = Color.white;
     }
     
 }

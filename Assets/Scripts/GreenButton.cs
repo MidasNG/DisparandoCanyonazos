@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GreenButton : Button
+public class GreenButton : MonoBehaviour
 {
+    private GameManager game;
+
+    private void Start()
+    {
+        game = FindObjectOfType<GameManager>();
+    }
+
     private void OnMouseDown()
     {
-        cannon.GetComponent<Cannon>().Shoot();
-        bulletCount++;
-        counter.text = bulletCount.ToString();
+        game.cannon.Shoot();
+        game.BulletUp();
     }
 }

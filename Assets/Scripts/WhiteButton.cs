@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WhiteButton : Button
+public class WhiteButton : MonoBehaviour
 {
-    
+    private GameManager game;
+
+    private void Start()
+    {
+        game = FindObjectOfType<GameManager>();
+    }
+
     private void OnMouseDown()
     {
-        cannon.GetComponent<Cannon>().RandomShoot();
-        bulletCount++;
-        counter.text = bulletCount.ToString();
+        game.cannon.RandomShoot();
+        game.BulletUp();
     }
 }
