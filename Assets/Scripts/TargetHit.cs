@@ -26,6 +26,6 @@ public class TargetHit : MonoBehaviour
     private void Update()
     {
         //Rotación en estado 2
-        if(rotate) transform.Rotate(0, 5*Time.deltaTime, 0);
+        if(rotate) transform.Rotate(0, 15*Time.deltaTime, 0);
     }
 }
