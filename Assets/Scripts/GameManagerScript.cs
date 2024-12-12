@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class GameManager : MonoBehaviour
+public class GameManagerScript : MonoBehaviour
 {
     public Cannon cannon;
     public GameObject origin, target;

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TargetScript : MonoBehaviour
 {
-    private GameManager game;
+    private GameManagerScript game;
     public int posNum;
 
     private void Start()
     {
-        game = GameObject.FindObjectOfType<GameManager>();
+        game = GameObject.FindObjectOfType<GameManagerScript>();
     }
 
     private void OnCollisionEnter(Collision collision) 

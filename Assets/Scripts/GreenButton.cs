@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class GreenButton : MonoBehaviour
 {
-    private GameManager game;
+    private GameManagerScript game;
     public TextMeshProUGUI powerText;
     private float pow = 10f;
 
     private void Start()
     {
-        game = FindObjectOfType<GameManager>();
+        game = FindObjectOfType<GameManagerScript>();
     }
 
     //Incremento de potencia
