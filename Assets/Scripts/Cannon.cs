@@ -24,10 +24,10 @@ public class Cannon : MonoBehaviour
 
         //Cambio de color inicial y creación de bala
         GetComponent<MeshRenderer>().material.color = Color.red;
-        instance = Instantiate(ball, transform);
+        instance = Instantiate(ball, transform.GetChild(0));
         instance.transform.LookAt(direction.pointer.transform.position);
         instance.transform.SetParent(parent);
-        instance.GetComponent<Rigidbody>().AddForce(transform.up*power, ForceMode.Impulse);
+        instance.GetComponent<Rigidbody>().AddForce(transform.forward*power, ForceMode.Impulse);
 
         //Corrutina de rastreo de distancia para volver al color normal
         StartCoroutine(TrackDistance(instance));

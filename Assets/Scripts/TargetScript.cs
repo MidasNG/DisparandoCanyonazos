@@ -10,6 +10,13 @@ public class TargetScript : MonoBehaviour
     private void Start()
     {
         game = GameObject.FindObjectOfType<GameManagerScript>();
+        List<Transform> children = new List<Transform>();
+        foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+        {
+            children.Add(child);
+            if (child.gameObject != gameObject) child.gameObject.SetActive(false);
+        }
+        children[Random.Range(1, children.Count)].gameObject.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision collision) 
