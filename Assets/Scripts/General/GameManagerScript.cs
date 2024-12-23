@@ -9,8 +9,7 @@ public class GameManagerScript : MonoBehaviour
     public Cannon cannon;
     public GameObject origin, target;
     public TextMeshProUGUI bulletCounter, targetCounter;
-    private int bulletCount = 0, targetCount = 0, posNum = 0;
-    public Transform[] targetPositions = new Transform[5];
+    private int bulletCount = 0, targetCount = 0;
 
     private void Start()
     {
@@ -21,8 +20,7 @@ public class GameManagerScript : MonoBehaviour
         targetCounter = GameObject.Find("TargetCounter").GetComponent<TextMeshProUGUI>();
 
         //Creación de la primera diana
-        posNum = Random.Range(0, targetPositions.Length);
-        Instantiate(target, targetPositions[posNum].position, Quaternion.Euler(-90, 0, 0)).GetComponent<TargetScript>().posNum = posNum;
+        Instantiate(target, new Vector3(Random.Range(-20, 15), Random.Range(1.5f, 11), 10), Quaternion.Euler(-90, 0, 0));
     }
 
     public void BulletUp()
@@ -37,12 +35,8 @@ public class GameManagerScript : MonoBehaviour
         //Incremento de dianas golpeadas
         targetCount++;
         targetCounter.text = "Dianas: " + targetCount.ToString();
-        
-        //Posición nueva diferente de la última
-        posNum = exception;
-        while (posNum == exception) posNum = Random.Range(0, targetPositions.Length);
 
         //Creación de nueva diana
-        Instantiate(target, targetPositions[posNum].position, Quaternion.Euler(-90, 0, 0)).GetComponent<TargetScript>().posNum = posNum;
+        Instantiate(target, new Vector3(Random.Range(-20, 15), Random.Range(1.5f, 11), 10), Quaternion.Euler(-90, 0, 0));
     }
 }
