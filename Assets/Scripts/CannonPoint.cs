@@ -28,7 +28,7 @@ public class CannonPoint : MonoBehaviour
         {
             pow += 20 * Time.deltaTime;
             pow = Mathf.Clamp(pow, 0, 50);
-            powerText.text = "Potencia: " + (int)pow;
+            powerText.text = ((int)pow).ToString();
         }
 
         //El padre mira la diana para alinear el cañón
@@ -55,7 +55,7 @@ public class CannonPoint : MonoBehaviour
             game.BulletUp();
 
             //Volver al estado inicial
-            powerText.text = "Potencia: 10";
+            powerText.text = "0";
             pow = 10f;
         }
     }

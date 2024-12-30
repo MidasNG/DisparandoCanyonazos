@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -8,17 +9,13 @@ using UnityEngine.UI;
 
 public class MenuButtons : MonoBehaviour
 {
-    private GameObject settingsMenu;
-
-    private void Start()
-    {
-        settingsMenu = GameObject.Find("Settings");
-        settingsMenu.SetActive(false);
-    }
+    public GameObject settingsMenu, creditsMenu, difficultyButton;
+    private bool isHard = false;
 
     public void StartGame()
     {
-        SceneManager.LoadSceneAsync("Game");
+        if (isHard) SceneManager.LoadSceneAsync("GameHard");
+        else SceneManager.LoadSceneAsync("GameEasy");
     }
 
     public void OpenSettings()
@@ -29,6 +26,29 @@ public class MenuButtons : MonoBehaviour
     public void CloseSettings()
     {
         settingsMenu.SetActive(false);
+    }
+
+    public void ChangeDifficulty()
+    {
+        if (isHard) difficultyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Difficulty: Easy";
+        else difficultyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Difficulty: Hard";
+
+        isHard = !isHard;
+    }
+
+    public void OpenCredits()
+    {
+        creditsMenu.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        creditsMenu.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        SceneManager.LoadSceneAsync("Menu");
     }
 
     public void Quit()

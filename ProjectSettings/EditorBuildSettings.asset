@@ -9,7 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: ec86f3b91ba7fb046b75e0ca131cb8f2
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/GameEasy.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/GameHard.unity
+    guid: db4fdc37ed635ba4c9d2ea8ed11b3dba
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: dad8a1ec705dc684db0475abd41c8028, type: 2}
