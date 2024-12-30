@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 1185073228}
   - component: {fileID: 1185073231}
   - component: {fileID: 1185073230}
-  - component: {fileID: 1185073229}
+  - component: {fileID: 1185073232}
   m_Layer: 5
   m_Name: DefeatText
   m_TagString: Untagged
@@ -1205,42 +1205,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 285}
   m_SizeDelta: {x: 764.3, y: 241.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1185073229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185073227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2105c1919aad664f946bb2dc5ab662e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  easing:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &1185073230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1304,7 +1268,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -1338,6 +1302,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1185073227}
   m_CullTransparentMesh: 1
+--- !u!95 &1185073232
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185073227}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0b36f0268a68c0438934722c54e6c7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1206648050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2748,7 +2733,7 @@ GameObject:
   - component: {fileID: 1804362807}
   - component: {fileID: 1804362810}
   - component: {fileID: 1804362809}
-  - component: {fileID: 1804362808}
+  - component: {fileID: 1804362811}
   m_Layer: 5
   m_Name: VictoryText
   m_TagString: Untagged
@@ -2775,18 +2760,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 286}
   m_SizeDelta: {x: 764.3, y: 241.7}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1804362808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804362806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6a5e48c04cfb224f8b52f42d753c713, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1804362809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2850,7 +2823,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2884,6 +2857,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804362806}
   m_CullTransparentMesh: 1
+--- !u!95 &1804362811
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804362806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a4a9cab289e1b9448a741b7416606df2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1856173655
 GameObject:
   m_ObjectHideFlags: 0
