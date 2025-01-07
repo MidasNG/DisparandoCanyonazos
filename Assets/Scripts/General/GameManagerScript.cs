@@ -11,8 +11,11 @@ public class GameManagerScript : MonoBehaviour
     public TextMeshProUGUI bulletCounter, targetCounter, timeCounter;
     public AudioClip shootSound, hitSound;
     private int bulletCount = 0, targetCount = 0;
-    public float countdown = 20, timeBonus = 3, timeToHit, maxDistanceX, maxDistanceY;
+    private float countdown, timeBonus, maxDistanceX, maxDistanceY;
+    public float timeToHit;
     private bool hasEnded = false;
+
+    private DifficultyManager difficulty;
 
     private void Start()
     {
@@ -22,6 +25,15 @@ public class GameManagerScript : MonoBehaviour
         bulletCounter = GameObject.Find("BulletCounter").GetComponent<TextMeshProUGUI>();
         targetCounter = GameObject.Find("TargetCounter").GetComponent<TextMeshProUGUI>();
         timeCounter = GameObject.Find("TimeCounter").GetComponent<TextMeshProUGUI>();
+        difficulty = FindObjectOfType<DifficultyManager>();
+
+        //Obtención de valores de la dificultad
+        countdown = difficulty.time;
+        timeBonus = difficulty.timeBonus;
+        timeToHit = difficulty.respawnTime;
+        maxDistanceX = difficulty.maxDistanceX;
+        maxDistanceY = difficulty.maxDistanceY;
+
 
         //Creación de la primera diana
         Instantiate(target, new Vector3(Random.Range(-20, 15), Random.Range(1.5f, 11), 10), Quaternion.Euler(-90, 0, 0));
